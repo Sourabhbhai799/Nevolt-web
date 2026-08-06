@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Newolt — QR Menu Marketing Site"
+description = "A conversion-focused marketing website for Newolt, a SaaS startup providing QR-based digital menus and ordering systems for small American restaurants, cafes, and food trucks. Dark-mode luxury aesthetic with Tailwind CSS, smooth animations, lead capture modal with Formspree, and full responsive design."
+version = "1.0.0"
+id = "artifacts/newolt"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23241
+
+[services.development]
+run = "pnpm --filter @workspace/newolt run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/newolt", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/newolt/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23241"
+BASE_PATH = "/"

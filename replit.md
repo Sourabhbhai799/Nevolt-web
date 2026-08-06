@@ -1,6 +1,6 @@
-# [Project name]
+# Newolt
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A conversion-focused marketing website for Newolt — a SaaS startup providing QR-based digital menus and ordering for small American restaurants, cafes, and food trucks as a low-cost alternative to Toast POS.
 
 ## Run & Operate
 

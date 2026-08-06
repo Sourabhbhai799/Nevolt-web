@@ -5,7 +5,7 @@
   publish = "artifacts/newolt/dist/public"
 
 [context.production.environment]
-  BASE_PATH = "/"
+  BASE_PATH = "./"
   PORT = "5173"
 
 # Single-page app fallback — serve index.html for all routes

@@ -1,0 +1,16 @@
+# Netlify config for deploying the Newolt marketing site from the monorepo
+[build]
+  # Use the pnpm workspace filter so the newolt package and its workspace deps are built
+  command = "pnpm --filter @workspace/newolt... run build"
+  publish = "artifacts/newolt/dist/public"
+
+[context.production.environment]
+  BASE_PATH = "/"
+  PORT = "5173"
+
+# Single-page app fallback — serve index.html for all routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true

@@ -42,7 +42,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              The smart alternative to Toast
+              The smart alternative to others
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">

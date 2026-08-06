@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 
 const comparisonData = [
-  { feature: "Monthly Cost", newolt: "Starts free, affordable plans", toast: "$69–$165+/month" },
-  { feature: "Hardware Required", newolt: "None — use your own device", toast: "Expensive proprietary terminals" },
-  { feature: "Setup Time", newolt: "Under 24 hours", toast: "Days to weeks" },
-  { feature: "Customer App Required", newolt: "No", toast: "Sometimes" },
-  { feature: "Contract Lock-in", newolt: "None", toast: "Long-term contracts" },
-  { feature: "QR Menu Ordering", newolt: "Yes, built-in", toast: "Add-on or limited" },
-  { feature: "Setup Fee", newolt: "$0", toast: "Up to $799" },
+  { feature: "Monthly Cost", newolt: "Starts at $29/month", others: "$69–$165+/month" },
+  { feature: "Hardware Required", newolt: "None — use your own device", others: "Expensive proprietary terminals" },
+  { feature: "Setup Time", newolt: "Under 24 hours", others: "Days to weeks" },
+  { feature: "Customer App Required", newolt: "No", others: "Sometimes" },
+  { feature: "Contract Lock-in", newolt: "None", others: "Long-term contracts" },
+  { feature: "QR Menu Ordering", newolt: "Yes, built-in", others: "Add-on or limited" },
+  { feature: "Setup Fee", newolt: "$0", others: "Up to $799" },
 ];
 
 export function Comparison() {
@@ -51,7 +51,7 @@ export function Comparison() {
               <span className="text-2xl font-bold text-white tracking-tight">Newolt</span>
             </div>
             <div className="col-span-6 md:col-span-4 p-6 text-center">
-              <span className="text-xl font-bold text-muted-foreground tracking-tight opacity-70">Toast</span>
+              <span className="text-xl font-bold text-muted-foreground tracking-tight opacity-70">Others</span>
             </div>
           </div>
 
@@ -70,7 +70,7 @@ export function Comparison() {
                 <div className="col-span-6 md:col-span-4 p-4 md:p-6 flex items-center justify-center text-center opacity-60">
                   <div className="flex flex-col items-center gap-2">
                     <X className="w-5 h-5 text-muted-foreground hidden md:block" />
-                    <span className="text-muted-foreground">{row.toast}</span>
+                    <span className="text-muted-foreground">{row.others}</span>
                   </div>
                 </div>
               </div>

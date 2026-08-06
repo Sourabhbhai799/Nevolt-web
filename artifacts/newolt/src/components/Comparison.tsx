@@ -64,7 +64,7 @@ export function Comparison() {
                 <div className="col-span-6 md:col-span-4 p-4 md:p-6 bg-primary/[0.03] border-x border-primary/10 flex items-center justify-center text-center">
                   <div className="flex flex-col items-center gap-2">
                     <Check className="w-5 h-5 text-primary hidden md:block" />
-                    <span className="text-primary-foreground/90 font-medium">{row.newolt}</span>
+                    <span className="text-primary font-semibold">{row.newolt}</span>
                   </div>
                 </div>
                 <div className="col-span-6 md:col-span-4 p-4 md:p-6 flex items-center justify-center text-center opacity-60">

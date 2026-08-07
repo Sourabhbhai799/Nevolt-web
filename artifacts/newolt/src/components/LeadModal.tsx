@@ -5,7 +5,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { CheckCircle2, Loader2, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function LeadModal({ children }: { children?: React.ReactNode }) {
+type LeadModalProps = {
+  children?: React.ReactNode;
+  isDemoRequest?: boolean;
+};
+
+export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
   
@@ -26,6 +31,7 @@ export function LeadModal({ children }: { children?: React.ReactNode }) {
       restaurant: formData.restaurant,
       email: formData.email,
       phone: `${formData.countryCode} ${formData.phone}`,
+      requestType: isDemoRequest ? 'Demo menu' : 'Custom menu',
     };
 
     console.log("Submitting lead data:", JSON.stringify(payload, null, 2));
@@ -47,7 +53,8 @@ export function LeadModal({ children }: { children?: React.ReactNode }) {
     } catch (error) {
       console.error(error);
       // Fallback
-      window.location.href = `mailto:sourabh@newolt.com?subject=New%20Menu%20Request%20(demo)&body=Name: ${formData.name}%0D%0ARestaurant: ${formData.restaurant}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.countryCode} ${formData.phone}`;
+      const subject = `New Menu Request${isDemoRequest ? ' (demo)' : ''}`;
+      window.location.href = `mailto:sourabh@newolt.com?subject=${encodeURIComponent(subject)}&body=Name: ${formData.name}%0D%0ARestaurant: ${formData.restaurant}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.countryCode} ${formData.phone}`;
       setStatus('success');
     }
   };
@@ -79,7 +86,7 @@ export function LeadModal({ children }: { children?: React.ReactNode }) {
               </div>
               <DialogTitle className="mb-2">Request Received</DialogTitle>
               <DialogDescription className="text-base">
-                Thank you! Your request has been received. Our team will contact you shortly with your custom menu demo.
+                Thank you! Your request has been received. Our team will contact you shortly with your custom menu{isDemoRequest ? ' demo' : ''}.
               </DialogDescription>
               <Button className="mt-8 w-full" onClick={() => setIsOpen(false)} variant="outline">
                 Close

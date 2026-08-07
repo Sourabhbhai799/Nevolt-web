@@ -14,10 +14,6 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToHowItWorks = () => {
-    document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-24 pb-20 overflow-hidden">
       {/* Background Effects */}
@@ -55,20 +51,12 @@ export function Hero() {
               No expensive hardware. No app needed. Just you, your restaurant, and any device — that's it. Get a beautifully crafted digital menu that makes customers order more.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex">
               <LeadModal>
                 <Button size="lg" className="h-14 px-8 text-base shadow-lg shadow-primary/20 bg-primary text-primary-foreground hover:bg-primary/90">
                   Request Your Menu Demo
                 </Button>
               </LeadModal>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="h-14 px-8 text-base bg-white/5 border-white/10 hover:bg-white/10"
-                onClick={scrollToHowItWorks}
-              >
-                See How It Works
-              </Button>
             </div>
             
             <div className="mt-10 flex items-center gap-4 text-sm text-muted-foreground">

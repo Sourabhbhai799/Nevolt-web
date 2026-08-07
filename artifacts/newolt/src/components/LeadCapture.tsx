@@ -33,7 +33,7 @@ export function LeadCapture() {
           
           <LeadModal>
             <Button size="lg" className="h-16 px-10 text-lg shadow-2xl shadow-primary/30 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full group">
-              Request Your Free Menu Demo
+              Click here for your Menu
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </LeadModal>

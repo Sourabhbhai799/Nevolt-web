@@ -36,7 +36,7 @@ export function Footer() {
             <a href="#features" onClick={(e) => scrollTo(e, '#features')} className="text-muted-foreground hover:text-white transition-colors w-fit">Features</a>
             <a href="#how-it-works" onClick={(e) => scrollTo(e, '#how-it-works')} className="text-muted-foreground hover:text-white transition-colors w-fit">How It Works</a>
             <a href="#pricing" onClick={(e) => scrollTo(e, '#pricing')} className="text-muted-foreground hover:text-white transition-colors w-fit">Pricing</a>
-            <a href="mailto:hello@newolt.com" className="text-muted-foreground hover:text-white transition-colors w-fit">Contact</a>
+            <a href="mailto:nevoltnow@gmail.com" className="text-muted-foreground hover:text-white transition-colors w-fit">Contact</a>
           </div>
 
           {/* Social / Contact */}

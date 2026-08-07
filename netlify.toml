@@ -4,13 +4,12 @@
   command = "pnpm --filter @workspace/newolt... run build"
   publish = "artifacts/newolt/dist/public"
 
-[context.production.environment]
+[build.environment]
   BASE_PATH = "./"
   PORT = "5173"
 
-# Single-page app fallback — serve index.html for all routes
+# Single-page app fallback — serve index.html only when no real file matches the request
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true

@@ -47,7 +47,7 @@ export function LeadModal({ children }: { children?: React.ReactNode }) {
     } catch (error) {
       console.error(error);
       // Fallback
-      window.location.href = `mailto:sourabh@newolt.com?subject=New Menu Request&body=Name: ${formData.name}%0D%0ARestaurant: ${formData.restaurant}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.countryCode} ${formData.phone}`;
+      window.location.href = `mailto:sourabh@newolt.com?subject=New%20Menu%20Request%20(demo)&body=Name: ${formData.name}%0D%0ARestaurant: ${formData.restaurant}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.countryCode} ${formData.phone}`;
       setStatus('success');
     }
   };

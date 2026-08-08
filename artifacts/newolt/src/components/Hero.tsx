@@ -25,7 +25,7 @@ export function Hero() {
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
+
           {/* Text Content */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -40,25 +40,26 @@ export function Hero() {
               </span>
               the future of restaurants is here
             </div>
-            
+
             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
               Low effort. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Low expense.</span> <br />
               Higher Revenue.
             </h1>
-            
+
             <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
               No expensive hardware. No app needed. Just you, your restaurant, and any device — that's it. Get a beautifully crafted digital menu that makes customers order more.
             </p>
-            
+
             <div className="flex">
-              <LeadModal isDemoRequest>
+              {/* ✅ Yahan isDemoRequest={true} aur selectedPlan add kar diya hai */}
+              <LeadModal isDemoRequest={true} selectedPlan="Demo Request">
                 <Button size="lg" className="h-14 px-8 text-base shadow-lg shadow-primary/20 bg-primary text-primary-foreground hover:bg-primary/90">
                   Request Your Menu Demo
                 </Button>
               </LeadModal>
             </div>
-            
+
             <div className="mt-10 flex items-center gap-4 text-sm text-muted-foreground">
               <div className="flex -space-x-2">
                 <img src="https://i.pravatar.cc/100?img=1" alt="User" className="w-8 h-8 rounded-full border-2 border-background" />

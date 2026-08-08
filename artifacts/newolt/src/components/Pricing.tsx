@@ -16,6 +16,7 @@ const plans = [
   {
     name: "Starter",
     price: 49,
+    planTitle: "Starter Plan ($49/mo)", // ✅ Plan title add kiya email ke liye
     description: "Everything you need to launch a smarter ordering experience.",
     features: [
       {
@@ -41,6 +42,7 @@ const plans = [
   {
     name: "Pro / Growth",
     price: 79,
+    planTitle: "Pro / Growth Plan ($79/mo)", // ✅ Plan title add kiya email ke liye
     description: "Built for growing restaurants ready to automate every order.",
     popular: true,
     features: [
@@ -178,7 +180,8 @@ export function Pricing() {
                 })}
               </ul>
 
-              <LeadModal isDemoRequest>
+              {/* ✅ isDemoRequest hata diya aur selectedPlan pass kar diya */}
+              <LeadModal selectedPlan={plan.planTitle}>
                 <Button
                   size="lg"
                   variant={plan.popular ? "default" : "outline"}

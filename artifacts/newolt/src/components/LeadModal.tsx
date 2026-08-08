@@ -8,12 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 type LeadModalProps = {
   children?: React.ReactNode;
   isDemoRequest?: boolean;
+  selectedPlan?: string; // ✅ Nayi prop plan ke liye
 };
 
-export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
+export function LeadModal({ children, isDemoRequest = false, selectedPlan = 'Custom' }: LeadModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     restaurant: '',
@@ -32,6 +33,7 @@ export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
       email: formData.email,
       phone: `${formData.countryCode} ${formData.phone}`,
       requestType: isDemoRequest ? 'Demo menu' : 'Custom menu',
+      selectedPlan: selectedPlan, // ✅ Payload mein bhi plan bhej diya
     };
 
     console.log("Submitting lead data:", JSON.stringify(payload, null, 2));
@@ -52,9 +54,9 @@ export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
       }
     } catch (error) {
       console.error(error);
-      // Fallback
-      const subject = `New Menu Request${isDemoRequest ? ' (demo)' : ''}`;
-      window.location.href = `mailto:nevoltnow@gmail.com?subject=${encodeURIComponent(subject)}&body=Name: ${formData.name}%0D%0ARestaurant: ${formData.restaurant}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.countryCode} ${formData.phone}`;
+      // Fallback (Subject se '(demo)' hata diya aur Selected Plan add kar diya)
+      const subject = `New Menu Request`;
+      window.location.href = `mailto:nevoltnow@gmail.com?subject=${encodeURIComponent(subject)}&body=Selected Plan: ${encodeURIComponent(selectedPlan)}%0D%0AName: ${encodeURIComponent(formData.name)}%0D%0ARestaurant: ${encodeURIComponent(formData.restaurant)}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0APhone: ${encodeURIComponent(formData.countryCode + ' ' + formData.phone)}`;
       setStatus('success');
     }
   };
@@ -86,7 +88,7 @@ export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
               </div>
               <DialogTitle className="mb-2">Request Received</DialogTitle>
               <DialogDescription className="text-base">
-                Thank you! Your request has been received. Our team will contact you shortly with your custom menu{isDemoRequest ? ' demo' : ''}.
+                Thank you! Your request for the <span className="font-semibold text-foreground">{selectedPlan}</span> has been received. Our team will contact you shortly.
               </DialogDescription>
               <Button className="mt-8 w-full" onClick={() => setIsOpen(false)} variant="outline">
                 Close
@@ -102,10 +104,10 @@ export function LeadModal({ children, isDemoRequest = false }: LeadModalProps) {
               <DialogHeader>
                 <DialogTitle>Let's Build Your Menu</DialogTitle>
                 <DialogDescription>
-                  Tell us about your restaurant and we'll be in touch within 24 hours.
+                  Selected Plan: <span className="font-semibold text-primary">{selectedPlan}</span>
                 </DialogDescription>
               </DialogHeader>
-              
+
               <form onSubmit={handleSubmit} className="space-y-4 mt-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">Full Name</label>
